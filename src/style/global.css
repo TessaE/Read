@@ -10,7 +10,7 @@
 	--black: #252525;
 	--transblack: rgba(37, 37, 37, 0.7);
 	--moretransblack: rgba(37, 37, 37, 0.1);
-	--gray: #6b6b6b;
+	--gray: #a4a4a4;
 	--highlight: #e5ffc3;
 	--red: #e4002b;
 	--green: #24d05a;
@@ -20,85 +20,62 @@
 }
 
 ::selection {
-	background-color: var(--highlight);
-	color: var(--black);
+  background-color: #0f0f0f;
+  color: var(--white);
 }
+
+html,
+body,
+body button,
+body h1,
+body strong,
+body b,
+body em,
+body blockquote,
+body .go-home {
+  background: var(--black);
+  color: var(--white);
+}
+
+body nav {
+  background: var(--transblack);
+}
+
+body code {
+  background-color: var(--moretranswhite);
+}
+
+body a {
+  color: var(--white);
+}
+
+body .tag {
+  color: var(--gray);
+}
+
+.tag-title {
+  color: var(--white);
+  font-weight: 400;
+}
+
 html,
 body {
 	margin: auto;
 	padding: 20px;
 	max-width: 70ch;
-	background-color: var(--white);
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: var(--black);
 }
+
 html,
 body,
 button,
 code {
-	font-family: "iA Writer Mono", monospace;
-}
-h1,
-strong,
-b {
-	color: var(--black);
+	font-family: "Libre Bodoni", monospace;
+  font-size: clamp(1rem, 0.96rem + 0.26vw, 1.25rem); /* Clamp function calculated with the help of: https://utopia.fyi/type/calculator/ */
 }
 
-body.dark-mode,
-body.dark-mode button,
-body.dark-mode h1,
-body.dark-mode .go-home,
-button.dark-mode,
-button.dark-mode button {
-	background: var(--black);
-	color: var(--white);
-}
-body.dark-mode nav {
-	background: var(--transblack);
-}
 
-.tag-title {
-	font-weight: 400;
-	color: var(--black);
-}
-
-@media (prefers-color-scheme: dark) {
-	::selection {
-		background-color: #0f0f0f;
-		color: var(--white);
-	}
-	:root {
-		--gray: #a4a4a4;
-	}
-	html,
-	body,
-	body button,
-	body h1,
-	body strong,
-	body b,
-	body em,
-	body blockquote,
-	body .go-home {
-		background: var(--black);
-		color: var(--white);
-	}
-	body nav {
-		background: var(--transblack);
-	}
-	body code {
-		background-color: var(--moretranswhite);
-	}
-	body a {
-		color: var(--white);
-	}
-	body .tag {
-		color: var(--gray);
-	}
-	.tag-title {
-		color: var(--white);
-	}
-}
 
 h2,
 h3,
@@ -114,7 +91,6 @@ header {
 }
 
 a {
-	color: var(--black);
 	text-decoration-thickness: 0.3ex;
 	text-underline-offset: 0.3ex;
 }
@@ -123,7 +99,6 @@ nav {
 	position: sticky;
 	top: 0;
 	text-align: center;
-	background: var(--transwhite);
 	-webkit-backdrop-filter: blur(1px);
 	backdrop-filter: blur(1px);
 }
@@ -131,6 +106,7 @@ nav {
 nav a {
 	margin: 25px 0;
 }
+
 nav a:not(:last-child) {
 	padding: 0 12px 0 0;
 }
@@ -159,12 +135,13 @@ ul.tags-list {
 	flex-wrap: wrap;
 	justify-content: center;
 }
+
 .tag {
 	display: inline-block;
 	margin-right: 20px;
-	color: var(--black);
 	font-size: 0.8rem;
 }
+
 .tag:hover {
 	cursor: pointer;
 	font-weight: bold;
@@ -174,34 +151,41 @@ textarea {
 	width: 100%;
 	font-size: 16px;
 }
+
 input {
 	font-size: 16px;
 }
+
 main,
 content {
 	line-height: 1.6;
 }
+
 table {
 	width: 100%;
 }
+
 img {
 	max-width: 100%;
 	height: auto;
 }
+
 code {
 	padding: 2px 5px;
 	background-color: var(--moretransblack);
 	font-weight: bold;
 }
+
 pre {
 	padding: 1rem;
 }
+
 pre > code {
 	all: unset;
 }
+
 blockquote {
 	border: 1px solid var(--gray);
-	color: var(--black);
 	padding: 2px 0px 2px 20px;
 	margin: 0px;
 	font-style: italic;
@@ -231,7 +215,8 @@ h3 {
 }
 
 .header-frame {
-	max-width: 350px;
+	max-width: 400px;
+  text-align: center;
 }
 
 article :not(.article-title) {
@@ -243,14 +228,6 @@ article :not(.article-title) {
 	margin: 0.25em 0;
 }
 
-.blog-post {
-	font-size: clamp(1rem, 0.96rem + 0.22vw, 1.125rem);
-}
-
-.blog-post > * + * {
-	margin-block-start: 1em;
-}
-
 time {
 	font-style: italic;
 	color: var(--gray);
@@ -258,10 +235,4 @@ time {
 
 ul li time {
 	white-space: nowrap;
-}
-
-@media (max-width: 600px) {
-	nav a:not(:last-child) {
-		padding: 0;
-	}
 }

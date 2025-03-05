@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/BlogPost.astro
+layout: ../layouts/BookLayout.astro
 title: Markdown Example
 slug: markdown
 description: >-

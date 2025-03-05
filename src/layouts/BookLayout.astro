@@ -1,0 +1,44 @@
+---
+import Tags from "../components/Tags.astro";
+
+let {
+	content: { title, description, added, updated, tags, heroImage },
+} = Astro.props;
+
+added = new Date(added).toLocaleDateString(
+	"en-us",
+	{
+		year: "numeric",
+		month: "short",
+		day: "numeric",
+	}
+);
+
+if (updated) {
+	updated = new Date(updated).toLocaleDateString(
+		"en-us",
+		{
+			year: "numeric",
+			month: "short",
+			day: "numeric",
+		}
+	);
+}
+---
+
+<article>
+  {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
+  <h4 class="article-title">{title}</h4>
+  {updated ?
+    <span><time datetime={added}>{added}</time>, last updated on <time datetime={updated}>{updated}</time></span>
+    :
+    <span>{added && <time datetime={added}>{added}</time>}</span>
+  }
+  <Tags tags={tags} />
+
+  <div class="blog-post">
+    <slot />
+  </div>
+</article>
+
+
